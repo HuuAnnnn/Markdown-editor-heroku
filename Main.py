@@ -15,10 +15,12 @@ col1, col2 = st.columns([5, 5])
 layout_sidebar = st.sidebar
 layout_sidebar.write('''### Mark downfiles''')
 localStorage = localStoragePy('Markdown Editor', 'text')
-localStorage.setItem('files', '')
-md_files = localStorage.getItem('files')
-md_tuple = tuple([md_file.strip() for md_file in md_files.split(',') if md_file.strip() != ''])
 
+md_files = localStorage.getItem('files')
+if md_files:
+    md_tuple = tuple([md_file.strip() for md_file in md_files.split(',') if md_file.strip() != ''])
+else:
+    md_tuple = ()
 file = layout_sidebar.radio(
     "",
     md_tuple
