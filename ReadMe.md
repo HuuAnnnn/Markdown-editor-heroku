@@ -15,5 +15,3 @@ Chạy chương trình:
 ```python
 streamlit run Main.py
 ```
-
-Link: [Markdown editor heroku app](https://markdown-editor-streamlit.herokuapp.com/)
