@@ -38,7 +38,10 @@ if create_btn:
         create_file_name += '.md'
     
     if create_file_name not in md_tuple and create_file_name != ' ' and create_file_name != '' and len(create_file_name) > 1:
-        localStorage.setItem('files', localStorage.getItem('files') +', '+create_file_name)
+        current_data = localStorage.getItem('files')
+        if not current_data:
+            current_data = ""
+        localStorage.setItem('files', current_data +', '+create_file_name)
         localStorage.setItem(create_file_name, "")
         st_autorefresh()
 
@@ -105,4 +108,6 @@ if delete_btn:
     )
     st_autorefresh()
 
-localStorage.setItem('files',localStorage.getItem('files').replace(', ,', ''))
+current_storage = localStorage.getItem('files')
+if current_storage:
+    localStorage.setItem('files',localStorage.getItem('files').replace(', ,', ''))
